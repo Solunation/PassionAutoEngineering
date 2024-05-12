@@ -1,7 +1,8 @@
 :root {
-    --website-theme-gradient: linear-gradient(45deg, transparent, rgb(82, 142, 211));
+    --website-theme-gradient: linear-gradient(45deg, var(--clr-primary-400),var(--clr-primary-800), var(--clr-primary-900))/*linear-gradient(45deg, transparent, rgb(82, 142, 211))*/;
     --website-font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     --default-font-size: 1.2em;
+    --default-box-shadow: 0 0 5px 2px #00000082;
 }
 
 body {
@@ -35,8 +36,15 @@ Helper Class
 }
 
 .btn-custom {
-    background: #0c1e5d !important;
+    background: transparent !important;
+    color: var(--clr-primary-800) !important;
+    border: 2px solid var(--clr-primary-800) !important;
+}
+
+.btn-custom-lt {
+    background: transparent !important;
     color: white !important;
+    border: 2px solid white !important;
 }
 
 .section-heading {
@@ -70,13 +78,13 @@ Header Section
 
 #header .header-nav>ul>li>a,
 #footer .footer-nav>ul>li>a {
-    color: black;
+    color: white;
     font-family: var(--website-font-family);
     text-decoration: none;
 }
 
 #header .header-logo-img {
-    height: 3em;
+    /*height: 3em;*/
 }
 
 /*
@@ -85,15 +93,25 @@ Footer Section
 #footer {
     background: var(--website-theme-gradient);
     padding: 1em 2em;
+    color: white;
 }
 
+#footer h6,
 #footer #footer-content-container .footer-logo {
-    margin-bottom: 5em;
+    margin: 2rem 0;
+} 
+
+#footer #footer-content-container .footer-logo,
+#footer #footer-content-container .footer-nav {
+    /*margin-bottom: 5em;*/
+    flex-grow: 1;
 }
 
+/*
 #footer #footer-content-container .footer-logo .footer-logo-img {
-    height: 5em;
+    height: 5em; 
 }
+*/
 
 #footer #footer-content-container .footer-nav>ul {
     display: flex;
@@ -123,22 +141,27 @@ Footer Section
 Hero Section
 */
 #hero-container {
-    background-image: linear-gradient(45deg, rgb(228, 228, 228), rgb(230, 230, 230), white, transparent), url('../assets/img/banner-bg.jpg');
-    background-repeat: no-repeat;
-    background-position: right;
+    background: linear-gradient(180deg, rgb(189, 186, 186), rgb(230, 230, 230), white, transparent);
     height: 50svh;
 }
 
 #hero {
-    filter: blur();
     height: 100%;
     display: flex;
-    align-items: center;
+    align-items: end;
     padding: 1em 2em;
 }
 
 #hero #hero-content-summary {
     flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#hero #hero-content-summary > h1 {
+    font-size: 5rem;
 }
 
 #hero>img {
@@ -146,6 +169,15 @@ Hero Section
 }
 
 /*About Summary*/
+.about-content {
+    line-height: 2rem;
+}
+
+.about-content > h2, .about-content > h4 {
+    margin-bottom: 2rem;
+}
+
+
 #about-summary-container {
     padding: 2em;
 }
@@ -171,11 +203,19 @@ Hero Section
 }
 
 #speciality-container #speciality {
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: center;
+    gap: 4rem;
+    margin: 2rem 4rem;
+    /*
     display: flex;
     gap: 1em;
     padding: 1em 2em;
     justify-content: center;
     align-items: center;
+    */
 }
 
 #speciality-container #speciality > div {
@@ -183,10 +223,22 @@ Hero Section
 }
 
 #speciality-container #speciality .speciality-category-container {
+    box-shadow: var(--default-box-shadow);
+    border-radius: 10px;
+    padding: 20px;
+    display: grid;
+    grid-template-rows: 30% 10% 60%;
+    /*
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    */
+}
+
+#speciality-container #speciality .speciality-category-container > p {
+    font-size: 1rem;
+    line-height: 2rem;
 }
 
 #speciality-container #speciality .speciality-category-container .speciality-category-icon {
@@ -194,9 +246,9 @@ Hero Section
 }
 
 /*Products Section*/
-#products {
+#featured-products {
     background: white;
-    padding: 1em 2em;
+    margin: 2rem 4rem;
 }
 
 #products .product-card {
@@ -221,7 +273,8 @@ Hero Section
 .product-card,
 .product-card-home {
     display: flex;
-    box-shadow: 0 0 5px 0 #b7b7b7;
+    box-shadow: var(--default-box-shadow);
+    border-radius: 10px;
     padding: 1em;
     gap: 1em;
 }
@@ -252,7 +305,6 @@ Hero Section
 #featured-products-container #featured-products {
     display: flex;
     gap: 1em;
-    padding: 2em 2em 0 2em;
 }
 
 #product-dialog {
