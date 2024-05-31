@@ -1,4 +1,4 @@
-const products = [
+const prod = [
     {
         "title": "Agitator - Stirrer",
         "subTitle": "Suspending, Emulsifying & Homogenizing for Liquid and Paste",

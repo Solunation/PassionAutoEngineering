@@ -1,5 +1,7 @@
 const dialog = document.getElementById("product-dialog");
 
+var products = [...new_products["granulation & material handing"], ...new_products["ointment, plm, formulations"]];
+
 products.slice(0,2).forEach((product, i) =>{
     const productDiv = document.createElement('div');
     productDiv.setAttribute("class", "product-card-home")

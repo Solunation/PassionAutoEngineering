@@ -1,14 +1,16 @@
 const dialog = document.getElementById("product-dialog");
 
+var products = [...new_products["granulation & material handing"], ...new_products["ointment, plm, formulations"]];
+
 products.forEach((product, i) =>{
     const productDiv = document.createElement('div');
-    productDiv.setAttribute("class", "product-card")
+    productDiv.setAttribute("class", "product-card");
     productDiv.innerHTML = 
     `
         <img class="product-card-img" src="${product.images[0]}" alt="Product Image"></img> 
         <div>
             <h6>${product.title}</h6>
-            <p>${product.subTitle}</p>
+            <p>${product.subtitle}</p>
             <div>
                 <button class="btn btn-custom" onclick="showDialog(${i})">Read More</button>
             </div>
@@ -32,8 +34,9 @@ function showDialog(productId){
         </div>
         <div style="overflow: auto;">
             <h1>${products[productId].title}</h1>
-            <h2>${products[productId].subTitle}</h2>
-            <p>${products[productId].details}</p>
+            <h2>${products[productId].subtitle}</h2>
+            <p>${products[productId].application}</p>
+            <p>${products[productId].features}</p>
         </div>
     </div>`;
     dialog.showModal();
