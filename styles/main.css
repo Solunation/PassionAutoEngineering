@@ -2,7 +2,7 @@
     --website-theme-gradient: linear-gradient(45deg, var(--clr-primary-400),var(--clr-primary-800), var(--clr-primary-900))/*linear-gradient(45deg, transparent, rgb(82, 142, 211))*/;
     --website-font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     --default-font-size: 1.2em;
-    --default-box-shadow: 0 0 5px 2px #00000082;
+    --default-box-shadow: 0 0 5px 2px #0000001c;
 }
 
 body {
