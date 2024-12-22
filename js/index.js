@@ -2,21 +2,50 @@ const dialog = document.getElementById("product-dialog");
 
 var products = [...new_products["granulation & material handing"], ...new_products["ointment, plm, formulations"]];
 
-products.slice(0,2).forEach((product, i) =>{
-    const productDiv = document.createElement('div');
-    productDiv.setAttribute("class", "product-card-home")
-    productDiv.innerHTML = 
-    `
-        <img class="product-card-img" src="${product.images[0]}" alt="Product Image"></img> 
-        <div class="product-card-desc">
-            <h6>${product.title}</h6>
-            <p>${product.subTitle}</p>
-            <div>
-                <button class="btn btn-custom" onclick="showDialog(${i})">Read More</button>
-            </div>
-        <div>
-    `;
-    document.getElementById('featured-products').appendChild(productDiv);
+$(document).ready(function () {
+  if ($('.service_carousel').length) {
+    $('.service_carousel').owlCarousel({
+      loop: true,
+      items: 4,
+      margin: 30,
+      nav: true,
+      navText: [
+        '<i class="fa fa-angle-left"></i>',
+        '<i class="fa fa-angle-right"></i>'
+      ],
+      dots: false,
+      autoWidth: false,
+      autoplay: 5000,
+      autoplayTimeout: 3000,
+      autoplayHoverPause: true,
+      responsive: {
+        0: {
+          items: 1,
+          dots: false,
+          autoWidth: false
+        },
+        380: {
+          items: 1,
+          dots: false,
+          autoWidth: false
+        },
+        667: {
+          items: 2,
+          dots: false,
+          autoWidth: false
+        },
+        992: {
+          items: 3,
+          dots: false,
+          autoWidth: false
+        },
+        1000: {
+          items: 4,
+          autoWidth: false
+        }
+      }
+    });
+  };
 });
 
 
@@ -44,14 +73,14 @@ function addAnimation() {
   });
 }
 
-function closeDialog(){
+function closeDialog() {
   dialog.close();
 }
 
-function showDialog(productId){
+function showDialog(productId) {
   console.log(products[productId]);
-  dialog.innerHTML = 
-  `
+  dialog.innerHTML =
+    `
   <button style="position:absolute; top: 5px; right: 5px; border: none; border-radius: 50%;" onclick="closeDialog()"><i class="bi bi-x-lg"></i></button>
   <div style="display:flex; height: 85vh; gap: 1em;">
       <div>
